@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgres://milizemedical_azadiagnosis:milizemedical_azadiagnosis__postgres123a@localhost:5432/milizemedical_azadiagnosis_dev"
+}
+
+model credentials {
+  id         String    @id @default(cuid())
+  username   String    @unique
+  email      String    @unique
+  password   String
+  created_at DateTime  @default(now())
+  updated_at DateTime? @default(now())
+  deleted_at DateTime?
+}
